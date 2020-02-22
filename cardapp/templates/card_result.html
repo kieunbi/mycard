@@ -1,5 +1,66 @@
-<div class="container">
-    {%for card in cards%}
-        <p>카드 이름 : {{card.card_name}}</p> 
-    {%endfor%}
+
+{%extends 'base.html'%}
+{% load static %}
+{%block contents%}
+
+
+<div class="box">
+<br>
+<br>
+<br>
+    <div class="container result_box">
+        <center>
+        <p class="vs">
+        {{vs}} 순위입니다.
+        </p>
+        <hr class="my-hr1"> 
+        </center>
+        <br>
+        {%for card in cards%}
+        <div class="card_box">
+            <p> {{card.card_name}}</p> 
+            <img src="/static/{{card.card_image.url}}" height="100px">  
+            <!-- <p class="result_p"> 영화의 할인률은 {{card.card_movie}}%</p> 
+            <p class="result_p"> 버스의 할인률은 {{card.card_bus}}%</p> 
+            <p class="result_p"> 커피의 할인률은 {{card.card_coffee}}%</p> 
+            <p class="result_p"> 마트의 할인률은 {{card.card_mart}}%</p>  -->
+        </div>    
+        {%endfor%}
+
+    </div>
 </div>
+
+
+<style>
+    .vs{
+        font-family: 'Do Hyeon';
+        font-size: 30px;
+        
+
+    }
+    .result_box{
+
+        border: 1px solid #6b91e4;
+        padding: 30px;
+        background-color: #f9fafd;
+
+    }
+
+    .my-hr1 {
+        border: 0;
+        width: 100px;
+        height: 2px;
+        background: rgb(93, 122, 146);
+    }
+
+    .card_box{
+        border: 1px solid #474b53;
+        padding: 30px;
+        
+    }
+
+
+
+
+</style>
+{%endblock%}
