@@ -1,3 +1,5 @@
+{%extends 'base.html'%}
+{%block contents%}
 <a href='{%url 'board_write'%}'>글쓰기</a>
 <form action="{%url 'search'%}">
     카드 검색:<input type='search' name='query'>
@@ -10,3 +12,5 @@
 <p> 본문: {{blog.summary}}<a href={%url 'board_detail' blog.id%}>...more</a> </p>
 <br><br>
 {%endfor%}
+
+{%endblock%}
