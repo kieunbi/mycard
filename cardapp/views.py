@@ -19,10 +19,20 @@ def board_write(request):
 def write_create(request): #입력받은 내용을 데이터베이스에 넣어주는 함수
     blog = Blog()
     blog.title=request.GET['title']
+    blog.card_name=request.GET['card_name']
     blog.body=request.GET['body']
     blog.pub_date=timezone.datetime.now()
     blog.save() #데이터 베이스에 저장 
     return redirect('/board_detail/'+str(blog.id))
+
+def search(request):
+    query=request.GET['query']
+    if query:
+        posts=Blog.objects.filter(card_name=query)
+    return render(request,'result.html',{'posts':posts})
+
+def result(request):   
+    return render(request,'result.html')
 
 def board_update(request, blog_id):
     if request.method == "GET":
