@@ -54,8 +54,10 @@ def card_result(request):
     vs=request.GET['category']
     if(request.GET['cate']=='check'):
         cards= Card.objects.filter(card_sort = '체크카드')
-    if(request.GET['cate']=='credit'):
+        if(vs=='movie'):
+            cards=Card.objects.all().order_by('-card_movie')
+        elif(vs=='bus'):
+            cards=Card.objects.all().order_by('-card_bus')    
+    elif(request.GET['cate']=='credit'):
         cards= Card.objects.filter(card_sort = '신용카드')
-    if(vs=='movie'):
-        cards=Card.objects.all().order_by('-card_movie')
     return render(request,'card_result.html',{'cards':cards})   
