@@ -25,17 +25,23 @@ def write_create(request): #입력받은 내용을 데이터베이스에 넣어�
     return redirect('/board_detail/'+str(blog.id))
 
 def board_update(request, blog_id):
-    blog = Blog.objects.get(id =blog_id)
-    blog.title= request.GET['title'] 
-    blog.body= request.GET['body'] 
-    blog.save()
-    return render(request,'board_detail.html')
+    if request.method == "GET":
+        blog = Blog.objects.get(id=blog_id)
+        context={
+            "blog":blog
+        }
+        return render(request, "board_update.html", context)
+    elif request.method=="POST":
+        blog = Blog.objects.get(id =blog_id)
+        blog.title= request.POST['title'] 
+        blog.body= request.POST['body'] 
+        blog.save()
+        return redirect('/board_detail/'+str(blog.id))
 
 def board_delete(request, blog_id):    
     blog = Blog.objects.get(id =blog_id)
     blog.delete()
     return redirect('/board')
-
 
 
 def main(request):

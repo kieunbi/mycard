@@ -1,4 +1,8 @@
-<input type="text" placeholder="제목" value="{{blog.title}}">
-<input type="text" placeholder="날짜" value="{{blog.pub_date}}">
-<input type="text" placeholder="본문" value="{{blog.body}}">
-<a href ='{%url 'board_detail' blog.id%}'>확인</a> 
+
+<form action="{%url 'board_update' blog.id%}" method="POST" >
+    {%csrf_token%}
+    <input type="text" name="title" placeholder="제목" value="{{blog.title}}">
+    <input type="text" name="body" placeholder="날짜" value="{{blog.pub_date}}">
+    <input type="text" placeholder="본문" value="{{blog.body}}">
+    <input class="bin btn-dark" type="submit" value="제출하기">
+</form>
