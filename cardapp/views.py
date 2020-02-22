@@ -13,8 +13,8 @@ def board_detail(request, blog_id):
     board_detail = get_object_or_404(Blog,pk=blog_id)
     return render(request,'board_detail.html',{'blog':board_detail})
 
-def write(request):   
-    return render(request,'write.html')
+def board_write(request):   
+    return render(request,'board_write.html')
 
 def write_create(request): #입력받은 내용을 데이터베이스에 넣어주는 함수
     blog = Blog()
@@ -54,16 +54,16 @@ def card_result(request):
     price=request.GET['price']
     vs=request.GET['category']
     if(request.GET['cate']=='check'):
-        if(price=='200000'):
-            if(vs=='movie'):
-                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_movie')
-            elif(vs=='bus'):
-                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_bus')   
-            elif(vs=='coffee'):
-                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_coffee')
-            elif(vs=='mart'):
-                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_mart')
         if(price=='300000'):
+            if(vs=='movie'):
+                cards=Card.objects.filter(card_sort = '체크카드',card_price_min='300000').order_by('-card_movie')
+            elif(vs=='bus'):
+                cards=Card.objects.filter(card_sort = '체크카드',card_price_min='300000').order_by('-card_bus')   
+            elif(vs=='coffee'):
+                cards=Card.objects.filter(card_sort = '체크카드',card_price_min='300000').order_by('-card_coffee')
+            elif(vs=='mart'):
+                cards=Card.objects.filter(card_sort = '체크카드',card_price_min='300000').order_by('-card_mart')
+        if(price=='500000'):
             if(vs=='movie'):
                 cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_movie')
             elif(vs=='bus'):
@@ -74,5 +74,23 @@ def card_result(request):
                 cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_mart')          
 
     elif(request.GET['cate']=='credit'):
-        cards= Card.objects.filter(card_sort = '신용카드')
+        if(price=='300000'):
+            if(vs=='movie'):
+                cards= Card.objects.filter(card_sort = '신용카드',card_price_min='300000').order_by('-card_movie')
+            elif(vs=='bus'):
+                cards=Card.objects.filter(card_sort = '신용카드',card_price_min='300000').order_by('-card_bus')   
+            elif(vs=='coffee'):
+                cards=Card.objects.filter(card_sort = '신용카드',card_price_min='300000').order_by('-card_coffee')
+            elif(vs=='mart'):
+                cards=Card.objects.filter(card_sort = '신용카드',card_price_min='300000').order_by('-card_mart')
+        if(price=='500000'):
+            if(vs=='movie'):
+                cards=Card.objects.filter(card_sort = '신용카드').order_by('-card_movie')
+            elif(vs=='bus'):
+                cards=Card.objects.filter(card_sort = '신용카드').order_by('-card_bus')   
+            elif(vs=='coffee'):
+                cards=Card.objects.filter(card_sort = '신용카드').order_by('-card_coffee')
+            elif(vs=='mart'):
+                cards=Card.objects.filter(card_sort = '신용카드').order_by('-card_mart')
+
     return render(request,'card_result.html',{'cards':cards})   

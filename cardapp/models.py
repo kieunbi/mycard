@@ -2,6 +2,7 @@ from django.db import models
 
 class Blog(models.Model):
     title=models.CharField(max_length=200)
+    card_name=models.TextField()
     pub_date=models.DateTimeField('data published')
     body=models.TextField()
 
@@ -21,11 +22,6 @@ class Card(models.Model):
     card_bus = models.DecimalField(max_digits=8, decimal_places=2)
     card_coffee = models.DecimalField(max_digits=8, decimal_places=2)
     card_mart = models.DecimalField(max_digits=8, decimal_places=2)
-
-
-    # card_movie_cgv=models.DecimalField(max_digits=5, decimal_places=2)
-    # # card_movie_lotte=models.DecimalField(max_digits=5, decimal_places=2)
-    # # card_movie_mega=models.DecimalField(max_digits=5, decimal_places=2)
 
 
     def __str__(self):

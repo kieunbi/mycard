@@ -27,6 +27,6 @@ urlpatterns = [
     path('board_detail/<int:blog_id>',cardapp.views.board_detail, name="board_detail"),
     path('board_update/<int:blog_id>',cardapp.views.board_update, name="board_update"),
     path('board_delete/<int:blog_id>',cardapp.views.board_delete, name="board_delete"),
-    path('write/',cardapp.views.write, name="write"),
+    path('board_write/',cardapp.views.board_write, name="board_write"),
     path('write_create/',cardapp.views.write_create, name="write_create")
 ]
