@@ -15,10 +15,12 @@ class Card(models.Model):
     card_name=models.TextField()
     card_sort=models.TextField()
 
-    card_movie = models.DecimalField(max_digits=5, decimal_places=2)
-    card_bus = models.DecimalField(max_digits=5, decimal_places=2)
-    card_coffee = models.DecimalField(max_digits=5, decimal_places=2)
-    card_mart = models.DecimalField(max_digits=5, decimal_places=2)
+    card_price_min=models.IntegerField()
+
+    card_movie = models.DecimalField(max_digits=8, decimal_places=2)
+    card_bus = models.DecimalField(max_digits=8, decimal_places=2)
+    card_coffee = models.DecimalField(max_digits=8, decimal_places=2)
+    card_mart = models.DecimalField(max_digits=8, decimal_places=2)
 
 
     # card_movie_cgv=models.DecimalField(max_digits=5, decimal_places=2)

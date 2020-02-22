@@ -51,13 +51,28 @@ def card_recommend(request):
     return render(request,'card_recommend.html')    
 
 def card_result(request): 
+    price=request.GET['price']
     vs=request.GET['category']
     if(request.GET['cate']=='check'):
-        cards= Card.objects.filter(card_sort = '체크카드')
-        if(vs=='movie'):
-            cards=Card.objects.all().order_by('-card_movie')
-        elif(vs=='bus'):
-            cards=Card.objects.all().order_by('-card_bus')    
+        if(price=='200000'):
+            if(vs=='movie'):
+                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_movie')
+            elif(vs=='bus'):
+                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_bus')   
+            elif(vs=='coffee'):
+                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_coffee')
+            elif(vs=='mart'):
+                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_mart')
+        if(price=='300000'):
+            if(vs=='movie'):
+                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_movie')
+            elif(vs=='bus'):
+                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_bus')   
+            elif(vs=='coffee'):
+                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_coffee')
+            elif(vs=='mart'):
+                cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_mart')          
+
     elif(request.GET['cate']=='credit'):
         cards= Card.objects.filter(card_sort = '신용카드')
     return render(request,'card_result.html',{'cards':cards})   
