@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+
+{%block contents%}
+<body>
+    <div calss="container">
+        <form action="{%url 'card_result'%}">
+            <br>
+            <h3>필수</h3>
+            <input type="submit" value="나만의 카드 확인">
+            <br>
+            
+            <h3>어떤 카드를 찾으세요?</h3>
+            <input type="radio" id="check"  name="cate" value="check">
+            <label for="check">체크카드</label>
+            <br>
+            <input type="radio" id="credit" name="cate" value="credit">
+            <label for="credit">신용카드</label> 
+
+            <h3>원하는 카드 전월 실적</h3>
+            <input type="radio" name="price" value="100000">
+            <label for="credit_p">10만원</label>
+            <input type="radio" name="price" value="300000">
+            <label for="credit_p">30만원</label>
+            <input type="radio" name="price" value="500000">
+            <label for="credit_p">50만원</label>
+
+            <h3>어떤 혜택을 가장 중요하게 생각하시나요?</h3>
+            <input type="radio" id="check"  name="category" value="movie">
+            <label for="check">영화</label>
+            <input type="radio" id="check"  name="category" value="bus">
+            <label for="check">교통</label>
+            <input type="radio" id="check"  name="category" value="coffee">
+            <label for="check">커피</label>
+            <input type="radio" id="check"  name="category" value="mart">
+            <label for="check">편의점</label>
+
+        </form>
+    </div>
+</body>
+
+{%endblock%}

@@ -1,0 +1,12 @@
+
+<h1> 제목: {{blog.title}}</h1>
+<p> 날짜: {{blog.pub_date}} </p>
+<p> 본문 미리보기: {{blog.body}}</p>
+<a href ='{%url 'board'%}'>목록</a> 
+<form action="{%url 'board_update' blog.id%}">
+    <button class="dropdown-item" type="submit">수정하기</button>
+</form>
+<form action="{%url 'board_delete' blog.id%}">
+    <button class="dropdown-item" type="submit">삭제하기</button>
+</form>
+<br><br>
