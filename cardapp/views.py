@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.utils import timezone
 from .models import Blog,Card
 import queue
+from django.db.models import Q
 
 def board(request): 
     blogs = Blog.objects #쿼리셋, 모델로 부터 객체 목록을 전달받게끔 하는 것 / 
@@ -25,12 +26,6 @@ def write_create(request): #입력받은 내용을 데이터베이스에 넣어�
     blog.pub_date=timezone.datetime.now()
     blog.save() #데이터 베이스에 저장 
     return redirect('/board_detail/'+str(blog.id))
-
-def search(request):
-    query=request.GET['query']
-    if query:
-        posts=Blog.objects.filter(card_name=query)
-    return render(request,'result.html',{'posts':posts})
 
 def result(request):   
     return render(request,'result.html')
@@ -106,3 +101,10 @@ def card_result(request):
                 cards=Card.objects.filter(card_sort = '신용카드').order_by('-card_mart')   
                             
     return render(request,'card_result.html',{'cards':cards,'vs':vs})   
+ 
+
+def search(request):
+    query=request.GET['query']
+    if query:
+        posts=Blog.objects.filter(Q(card_name=query))
+    return render(request,'result.html',{'posts':posts}) 
