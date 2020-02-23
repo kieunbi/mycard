@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.utils import timezone
 from .models import Blog,Card
+import queue
 
 def board(request): 
     blogs = Blog.objects #쿼리셋, 모델로 부터 객체 목록을 전달받게끔 하는 것 / 
@@ -65,7 +66,7 @@ def card_result(request):
     vs=request.GET['category']
     if(request.GET['cate']=='check'):
         if(price=='300000'):
-            if(vs=='movie'):
+            if(vs=='영화 할인률'):
                 cards=Card.objects.filter(card_sort = '체크카드',card_price_min='300000').order_by('-card_movie')
             elif(vs=='bus'):
                 cards=Card.objects.filter(card_sort = '체크카드',card_price_min='300000').order_by('-card_bus')   
@@ -74,7 +75,7 @@ def card_result(request):
             elif(vs=='mart'):
                 cards=Card.objects.filter(card_sort = '체크카드',card_price_min='300000').order_by('-card_mart')
         if(price=='500000'):
-            if(vs=='movie'):
+            if(vs=='영화 할인률'):
                 cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_movie')
             elif(vs=='bus'):
                 cards=Card.objects.filter(card_sort = '체크카드').order_by('-card_bus')   
@@ -85,8 +86,9 @@ def card_result(request):
 
     elif(request.GET['cate']=='credit'):
         if(price=='300000'):
-            if(vs=='movie'):
+            if(vs=='영화 할인률'):
                 cards= Card.objects.filter(card_sort = '신용카드',card_price_min='300000').order_by('-card_movie')
+                name=card_movie
             elif(vs=='bus'):
                 cards=Card.objects.filter(card_sort = '신용카드',card_price_min='300000').order_by('-card_bus')   
             elif(vs=='coffee'):
@@ -94,13 +96,13 @@ def card_result(request):
             elif(vs=='mart'):
                 cards=Card.objects.filter(card_sort = '신용카드',card_price_min='300000').order_by('-card_mart')
         if(price=='500000'):
-            if(vs=='movie'):
+            if(vs=='영화 할인률'):
                 cards=Card.objects.filter(card_sort = '신용카드').order_by('-card_movie')
             elif(vs=='bus'):
                 cards=Card.objects.filter(card_sort = '신용카드').order_by('-card_bus')   
             elif(vs=='coffee'):
                 cards=Card.objects.filter(card_sort = '신용카드').order_by('-card_coffee')
             elif(vs=='mart'):
-                cards=Card.objects.filter(card_sort = '신용카드').order_by('-card_mart')
-
-    return render(request,'card_result.html',{'cards':cards})   
+                cards=Card.objects.filter(card_sort = '신용카드').order_by('-card_mart')   
+                            
+    return render(request,'card_result.html',{'cards':cards,'vs':vs})   

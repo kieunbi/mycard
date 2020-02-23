@@ -119,3 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'cardapp','static')
+] 
+
+STATIC_ROOT=os.path.join(BASE_DIR,'static')
+#static 파일들이 어디로 모일 것인지
