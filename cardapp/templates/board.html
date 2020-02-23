@@ -26,14 +26,9 @@
   <div class="board_sign">
     <p class="sign_word">카드가 가진 이야기를 풀어주세요:).</p>
     <form action="{%url 'board_write'%}">
-<<<<<<< HEAD
-        <button class="btn btn-dark" type="submit">글쓰기</button>
-=======
       <button type="submit" class="btn btn-light">카드 후기 남기기</button>
->>>>>>> f78a65ddeb82ed68e78fd006da3e0643b52a4778
     </form>
   </div>
-
   <!-- Page Content -->
   <div class="container">
 
@@ -86,6 +81,7 @@
         <h5 class="card-header">Search</h5>
         <div class="card-body">
           <form action="{%url 'search'%}">
+            {% csrf_token %}
             <div class="input-group">
               <input type="search" name='query' class="form-control" placeholder="카드검색">
               <span class="input-group-btn">

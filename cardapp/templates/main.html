@@ -34,7 +34,7 @@
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
       <a class="navbar-brand" href="">My Card</a>
-      <a class="btn btn-primary" href="#">Sign In</a>
+      <!-- <a class="btn btn-primary" href="#">Sign In</a> -->
     </div>
   </nav>
 
@@ -47,7 +47,8 @@
           <h1 class="mb-5">MY card가 여러분들의 인생카드를 골라드리겠습니다!</h1>
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form action="{%url 'search'%}">
+          <form action="{%url 'search'%}" method="post">
+            {% csrf_token %}
             <div class="form-row">
               <div class="col-12 col-md-9 mb-2 mb-md-0">
                 <input type="search" class="form-control form-control-lg" placeholder="당신에게 알맞는 카드는?" name='query'>
