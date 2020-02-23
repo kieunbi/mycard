@@ -1,0 +1,75 @@
+{%extends 'base.html'%}
+{%block contents%}
+
+<br><br><br><br>
+<div class="board_sign">
+    <p class="sign_word">카드가 가진 이야기를 풀어주세요:).</p>
+    <form action="{%url 'board_write'%}">
+        <button type="submit" class="btn btn-light">카드 후기 남기기</button>
+    </form>
+</div>
+
+<br><br>
+<div class="container board_base">
+    <center>
+        <form action="{%url 'search'%}">
+            카드 검색: <input type='search' name='query'>
+            <button type="submit" class="btn btn-info">검색</button>
+        </form>
+    </center>
+    <hr>
+    <br>
+    {% for blog in blogs.all %}
+    <div class="block">
+        <a href={%url 'board_detail' blog.id%} class="a_style">
+            <p> 제목: {{blog.title}}</p>
+        </a>
+        <p> 카드:{{blog.card_name}} </p>
+        <p> 올린시간: {{blog.pub_date}} </p>
+        <p> 본문: {{blog.summary}}<a href={%url 'board_detail' blog.id%}>...more</a> </p>
+    </div>
+    <br><br>
+    {%endfor%}
+</div>
+
+
+
+<style>
+    .sign_word {
+        font-family: 'Do Hyeon';
+        font-size: 40px;
+    }
+
+    .board_sign {
+        font-family: 'Do Hyeon';
+        font-size: 20px;
+        display: block;
+        width: 100%;
+        padding: 32px 10px;
+        color: #fff;
+        background: #91aee4;
+        background: -moz-linear-gradient(left, #91aee4 0, #6580a1 100%);
+        background: -webkit-linear-gradient(left, #91aee4, #7ea8da);
+        background: -webkit-gradient(linear, left top, right top, from(#91aee4), to(#6580a1));
+        background: -o-linear-gradient(left, #91aee4 0, #34464b 100%);
+        background: linear-gradient(90deg, #91aee4 0, #6580a1);
+        text-align: center;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#91aee4", endColorstr="#34464b", GradientType=1);
+    }
+
+    .board_base {
+        font-family: 'Nanum Gothic Coding';
+    }
+
+    .block {
+        border: 2px solid #bcbcbc;
+        padding: 10px 10px;
+    }
+
+    .a_style {
+        font-family: 'Do Hyeon';
+        font-size: 35px;
+        color: #0f0f0f;
+    }
+</style>
+{%endblock%}

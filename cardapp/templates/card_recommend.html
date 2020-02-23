@@ -2,6 +2,7 @@
 
 {%block contents%}
 
+<br><br><br><br>
 <div class="sign">
     <p class="sign_word">나만의 카드를 알아가는 시간,</p>
     <p class="sign_word_mini">점점 카드 정보가 추가될 예정입니다:).</p>
@@ -12,48 +13,48 @@
         <form action="{%url 'card_result'%}">
             <br>
             <p style="font-family: 'Do Hyeon'; font-size: 20px;">MY CARD</p>
-            
-            <p class="question" >어떤 카드를 찾으세요?</p>
+
+            <p class="question">어떤 카드를 찾으세요?</p>
 
             <div class="btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-dark" style="float :left; margin:5px">
-                <input type="radio" id="check"  name="cate" value="check">
-                체크카드</label>
+                    <input type="radio" id="check" name="cate" value="check">
+                    체크카드</label>
                 <label class="btn btn-outline-dark" style="margin-top:5px">
-                <input type="radio" id="credit"  name="cate" value="credit">
-                신용카드</label>
+                    <input type="radio" id="credit" name="cate" value="credit">
+                    신용카드</label>
                 <br>
-            </div>        
+            </div>
             <br><br>
 
             <p class="question">원하는 카드 전월 실적을 선택해주세요.</p>
             <div class="btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-dark" style="float :left; margin:5px">
-                <input type="radio" id="price"  name="price" value="300000">
-                30만원</label>
+                    <input type="radio" id="price" name="price" value="300000">
+                    30만원</label>
                 <label class="btn btn-outline-dark" style="margin-top:5px">
-                <input type="radio" id="price50"  name="price" value="500000">
-                50만원</label>
+                    <input type="radio" id="price50" name="price" value="500000">
+                    50만원</label>
                 <br>
             </div>
-        
+
 
             <br><br>
 
             <p class="question">어떤 혜택을 가장 중요하게 생각하시나요?</p>
             <div class="btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-dark" style="float :left; margin:5px">
-                <input type="radio" id="movie"  name="category" value="영화 할인률">
-                영화</label>
+                    <input type="radio" id="movie" name="category" value="영화 할인률">
+                    영화</label>
                 <label class="btn btn-outline-dark" style="margin-top:5px">
-                <input type="radio" id="bus"  name="category" value="bus">
-                버스</label>
+                    <input type="radio" id="bus" name="category" value="bus">
+                    버스</label>
                 <label class="btn btn-outline-dark" style="margin-top:5px">
-                <input type="radio" id="coffee"  name="category" value="coffee">
-                커피</label>
+                    <input type="radio" id="coffee" name="category" value="coffee">
+                    커피</label>
                 <label class="btn btn-outline-dark" style="margin-top:5px">
-                <input type="radio" id="mart"  name="category" value="mart">
-                마트</label>
+                    <input type="radio" id="mart" name="category" value="mart">
+                    마트</label>
 
                 <br>
             </div>
@@ -61,7 +62,7 @@
             <br><br>
 
             <input type="submit" class="btn btn-outline-dark" value="나만의 카드 확인">
-            
+
 
         </form>
     </dl>
@@ -75,12 +76,12 @@
         padding: 20px 20px;
         border-radius: 2px;
         background: #fff;
-        -webkit-box-shadow: 0 0 2px rgba(0,0,0,.26);
-        box-shadow: 0 0 2px rgba(0,0,0,.26);
+        -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .26);
+        box-shadow: 0 0 2px rgba(0, 0, 0, .26);
     }
 
-    .question{
-        font-family: 'Nanum Gothic Coding'; 
+    .question {
+        font-family: 'Nanum Gothic Coding';
         font-size: 20px;
     }
 
@@ -90,24 +91,24 @@
         padding: 32px 10px;
         color: #fff;
         background: #91aee4;
-        background: -moz-linear-gradient(left,#91aee4 0,#6580a1 100%);
-        background: -webkit-linear-gradient(left,#91aee4,#7ea8da);
-        background: -webkit-gradient(linear,left top,right top,from(#91aee4),to(#6580a1));
-        background: -o-linear-gradient(left,#91aee4 0,#34464b 100%);
-        background: linear-gradient(90deg,#91aee4 0,#6580a1);
+        background: -moz-linear-gradient(left, #91aee4 0, #6580a1 100%);
+        background: -webkit-linear-gradient(left, #91aee4, #7ea8da);
+        background: -webkit-gradient(linear, left top, right top, from(#91aee4), to(#6580a1));
+        background: -o-linear-gradient(left, #91aee4 0, #34464b 100%);
+        background: linear-gradient(90deg, #91aee4 0, #6580a1);
         text-align: center;
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#91aee4",endColorstr="#34464b",GradientType=1);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#91aee4", endColorstr="#34464b", GradientType=1);
     }
 
-    .sign_word{
-        font-family: 'Do Hyeon'; 
+    .sign_word {
+        font-family: 'Do Hyeon';
         font-size: 40px;
     }
 
-    .sign_word_mini{
-        font-family: 'Do Hyeon'; 
+    .sign_word_mini {
+        font-family: 'Do Hyeon';
         font-size: 20px;
-        color:#ced0d3;
+        color: #ced0d3;
     }
 </style>
 
