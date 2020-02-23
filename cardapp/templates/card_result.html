@@ -3,7 +3,10 @@
 {% load static %}
 {%block contents%}
 
-
+<div class="board_sign">
+    <p class="sign_word">"나만의 카드"</p>
+    <p class="sign_word_mini">About {{vs}}</p>
+</div>
 <div class="box">
 <br>
 <br>
@@ -32,18 +35,11 @@
 
 
 <style>
-    .vs{
-        font-family: 'Do Hyeon';
-        font-size: 30px;
-        
-
-    }
-    .result_box{
-
-        border: 1px solid #6b91e4;
+    .card_box{
+        border-radius: 10px;
+        border: 1px solid #474b53;
         padding: 30px;
-        background-color: #f9fafd;
-
+        
     }
 
     .my-hr1 {
@@ -53,11 +49,25 @@
         background: rgb(93, 122, 146);
     }
 
-    .card_box{
-        border: 1px solid #474b53;
+    .result_box{
+
+        border: 1px solid #6b91e4;
         padding: 30px;
-        
+        background-color: #f9fafd;
+
     }
+
+    .vs{
+        font-family: 'Do Hyeon';
+        font-size: 30px;
+        
+
+    }
+    
+
+    
+
+   
 
 
 
