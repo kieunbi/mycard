@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
 {%block contents%}
+<br><br>
 <div class="board_sign">
     <p class="sign_word">이야기 짓는 곳</p>
     <p class="sign_word_mini">카드에 대한 이야기를 짓는 곳입니다:).</p>
@@ -8,7 +9,7 @@
 <br>
 <br>
 <div class="container board_detail_box">
-    <form action="{%url 'write_create'%}" >
+    <form action="{%url 'write_create'%}">
         <div class="input-group">
             <p class="sort">제목</p><input type="text" class="detail_title" name="title" maxlength="16">
         </div>
@@ -17,22 +18,22 @@
             <p class="sort">카드</p> <input type="text" class="detail_name" name="card_name" maxlength="10">
         </div>
         <div class="input-group">
-            
-            <p class="sort">후기</p> <textarea class="detail_body" name="body"></textarea> 
+
+            <p class="sort">후기</p> <textarea class="detail_body" name="body"></textarea>
         </div>
         <br>
 
         <button class="btn btn-dark" type="submit">제출하기</button>
 
         <form action="{%url 'board'%}" class="sort">
-            <button type="submit" class="btn btn-dark" >뒤로 돌아가기</button>
+            <button type="submit" class="btn btn-dark">뒤로 돌아가기</button>
         </form>
 
     </form>
 </div>
 
 <style>
-    .board_detail_box{
+    .board_detail_box {
         border: 2px solid #bcbcbc;
         padding: 40px 30px;
         width: 1000px;
@@ -40,24 +41,25 @@
         border-radius: 10px;
         margin-bottom: 30px;
     }
+
     .board_sign {
-        font-family: 'Do Hyeon'; 
+        font-family: 'Do Hyeon';
         font-size: 20px;
         display: block;
         width: 100%;
         padding: 32px 10px;
         color: #fff;
         background: #91aee4;
-        background: -moz-linear-gradient(left,#91aee4 0,#6580a1 100%);
-        background: -webkit-linear-gradient(left,#91aee4,#7ea8da);
-        background: -webkit-gradient(linear,left top,right top,from(#91aee4),to(#6580a1));
-        background: -o-linear-gradient(left,#91aee4 0,#34464b 100%);
-        background: linear-gradient(90deg,#91aee4 0,#6580a1);
+        background: -moz-linear-gradient(left, #91aee4 0, #6580a1 100%);
+        background: -webkit-linear-gradient(left, #91aee4, #7ea8da);
+        background: -webkit-gradient(linear, left top, right top, from(#91aee4), to(#6580a1));
+        background: -o-linear-gradient(left, #91aee4 0, #34464b 100%);
+        background: linear-gradient(90deg, #91aee4 0, #6580a1);
         text-align: center;
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#91aee4",endColorstr="#34464b",GradientType=1);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#91aee4", endColorstr="#34464b", GradientType=1);
     }
 
-    .detail_title{
+    .detail_title {
         border: 2px solid #bcbcbc;
         padding: 10px 10px;
         width: 500px;
@@ -66,15 +68,15 @@
     }
 
 
-    .sign_word{
-        font-family: 'Yeon Sung'; 
+    .sign_word {
+        font-family: 'Yeon Sung';
         font-size: 40px;
     }
 
-    .sign_word_mini{
-        font-family: 'Do Hyeon'; 
+    .sign_word_mini {
+        font-family: 'Do Hyeon';
         font-size: 20px;
-        color:#ced0d3;
+        color: #ced0d3;
     }
 </style>
 {%endblock%}

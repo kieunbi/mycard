@@ -21,70 +21,67 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
     <style>
-    
         .board_sign {
-            font-family: 'Do Hyeon'; 
+            font-family: 'Do Hyeon';
             font-size: 20px;
             display: block;
             width: 100%;
             padding: 32px 10px;
             color: #fff;
             background: #91aee4;
-            background: -moz-linear-gradient(left,#91aee4 0,#6580a1 100%);
-            background: -webkit-linear-gradient(left,#91aee4,#7ea8da);
-            background: -webkit-gradient(linear,left top,right top,from(#91aee4),to(#6580a1));
-            background: -o-linear-gradient(left,#91aee4 0,#34464b 100%);
-            background: linear-gradient(90deg,#91aee4 0,#6580a1);
+            background: -moz-linear-gradient(left, #91aee4 0, #6580a1 100%);
+            background: -webkit-linear-gradient(left, #91aee4, #7ea8da);
+            background: -webkit-gradient(linear, left top, right top, from(#91aee4), to(#6580a1));
+            background: -o-linear-gradient(left, #91aee4 0, #34464b 100%);
+            background: linear-gradient(90deg, #91aee4 0, #6580a1);
             text-align: center;
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#91aee4",endColorstr="#34464b",GradientType=1);
-        
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#91aee4", endColorstr="#34464b", GradientType=1);
+
         }
-    
-        .detail_body{
+
+        .detail_body {
             border: 2px solid #bcbcbc;
             padding: 10px 10px;
             width: 700px;
             height: 450px;
             border-radius: 10px;
         }
-    
-        .detail_name{
+
+        .detail_name {
             border: 2px solid #bcbcbc;
             padding: 10px 10px;
             width: 300px;
             height: 50px;
             border-radius: 10px;
-    
+
         }
-    
-        .detail_title{
+
+        .detail_title {
             border: 2px solid #bcbcbc;
             padding: 10px 10px;
             width: 500px;
             height: 50px;
             border-radius: 10px;
         }
-    
-    
-        .sign_word{
-            font-family: 'Yeon Sung'; 
+
+
+        .sign_word {
+            font-family: 'Yeon Sung';
             font-size: 40px;
         }
-    
-        .sign_word_mini{
-            font-family: 'Do Hyeon'; 
+
+        .sign_word_mini {
+            font-family: 'Do Hyeon';
             font-size: 20px;
-            color:#ced0d3;
+            color: #ced0d3;
         }
-    
-    
-    
-        .sort{
+
+
+
+        .sort {
             padding: 10px 10px;
             float: right;
         }
-        
-    
     </style>
 </head>
 
@@ -92,7 +89,7 @@
 
 
     <!-- 기본적인 base 채우기 -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href='{%url 'main'%}' style="font-family: 'Sunflower';">Mycard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">

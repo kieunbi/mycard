@@ -1,6 +1,6 @@
-
 {%extends 'base.html'%}
 {%block contents%}
+<br><br>
 <div class="board_sign">
     <p class="sign_word">카드 이야기</p>
 </div>
@@ -8,20 +8,23 @@
 <br>
 <div class="container board_detail_box">
     <div class="input-group">
-        <p class="sort">제목</p>  <p class="detail_title"> {{blog.title}}</p>
+        <p class="sort">제목</p>
+        <p class="detail_title"> {{blog.title}}</p>
     </div>
-    
+
     <div class="input-group">
-        <p class="sort">올린시간</p>  <p class="detail_name"> {{blog.pub_date}}</p>
+        <p class="sort">올린시간</p>
+        <p class="detail_name"> {{blog.pub_date}}</p>
     </div>
     <div class="input-group">
-        <p class="sort">후기</p>  <p class="detail_body"> {{blog.body}}</p>
+        <p class="sort">후기</p>
+        <p class="detail_body"> {{blog.body}}</p>
     </div>
     <form action="{%url 'board'%}" class="sort">
-        <button type="submit" class="btn btn-dark" >목록</button>
+        <button type="submit" class="btn btn-dark">목록</button>
     </form>
-    
-    <form action="{%url 'board_update' blog.id%}" >
+
+    <form action="{%url 'board_update' blog.id%}">
         <button class="btn btn-dark" type="submit">수정하기</button>
     </form>
     <form action="{%url 'board_delete' blog.id%}">
@@ -31,21 +34,12 @@
 <br><br>
 
 <style>
-
-    .board_detail_box{
+    .board_detail_box {
         border: 2px solid #bcbcbc;
         padding: 40px 30px;
         width: 1000px;
         height: 830px;
         border-radius: 10px;
     }
-
-  
-
-
-
-    
-
-
-</style>    
+</style>
 {%endblock%}

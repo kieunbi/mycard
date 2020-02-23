@@ -1,6 +1,6 @@
-
 {%extends 'base.html'%}
 {%block contents%}
+<br><br>
 <div class="board_sign">
     <p class="sign_word">카드 이야기 수정</p>
     <p class="sign_word_mini">수정 페이지입니다:).</p>
@@ -8,13 +8,13 @@
 <br>
 <br>
 <div class="container board_update_box">
-    <form action="{%url 'board_update' blog.id%}" method="POST" >
+    <form action="{%url 'board_update' blog.id%}" method="POST">
         {%csrf_token%}
         <div class="input-group">
-            <p class="sort">제목</p><input type="text" class="detail_title"  name="title" value="{{blog.title}}">
+            <p class="sort">제목</p><input type="text" class="detail_title" name="title" value="{{blog.title}}">
         </div>
         <div class="input-group">
-            <p class="sort">카드</p>  <input type="text" class="detail_name" name="card_name" value="{{blog.card_name}}">
+            <p class="sort">카드</p> <input type="text" class="detail_name" name="card_name" value="{{blog.card_name}}">
         </div>
 
         <div class="input-group">
@@ -26,7 +26,7 @@
 </div>
 
 <style>
-    .board_update_box{
+    .board_update_box {
         border: 2px solid #bcbcbc;
         padding: 40px 30px;
         width: 1000px;
