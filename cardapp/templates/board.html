@@ -25,6 +25,9 @@
   <br>
   <div class="board_sign">
     <p class="sign_word">카드가 가진 이야기를 풀어주세요:).</p>
+    <form action="{%url 'board_write'%}">
+      <button type="submit" class="btn btn-light">카드 후기 남기기</button>
+    </form>
   </div>
 
   <!-- Page Content -->
@@ -56,12 +59,16 @@
       {%endfor%}
       <!-- Pagination -->
       <ul class="pagination justify-content-center mb-4">
+        {% if posts.has_previous %}
         <li class="page-item">
-          <a class="page-link" href="#">&larr; Older</a>
+          <a class="page-link" href="?page={{posts.previous_page_number}}">&larr; Older</a>
         </li>
-        <li class="page-item disabled">
-          <a class="page-link" href="#">Newer &rarr;</a>
+        {% endif %}
+        {% if posts.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{posts.next_page_number}}">Newer &rarr;</a>
         </li>
+        {% endif %}
       </ul>
 
     </div>
