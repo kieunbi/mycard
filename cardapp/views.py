@@ -3,11 +3,16 @@ from django.utils import timezone
 from .models import Blog,Card
 import queue
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 def board(request): 
     blogs = Blog.objects #쿼리셋, 모델로 부터 객체 목록을 전달받게끔 하는 것 / 
     #이 쿼리셋을 어떤 식으로 기능하거나 처리하도록 하는 기능들을 표시해주는 것을 메소드, 쿼리셋을 활용하게끔 하는 것
-    return render(request,'board.html',{'blogs':blogs})
+    blog_list = Blog.objects.all()
+    paginator = Paginator(blog_list, 3) 
+    page = request.GET.get('page')
+    posts = paginator.get_page(page) 
+    return render(request,'board.html',{'blogs':blogs, 'posts':posts})
 # 쿼리셋과 메소드의 형식
 # 모델.쿼리셋objects.메소드
 
