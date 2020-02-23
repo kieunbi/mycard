@@ -1,13 +1,106 @@
 
-<h1> 제목: {{blog.title}}</h1>
-<h2> 카드:{{blog.card_name}} </h2>
-<p> 올린시간: {{blog.pub_date}} </p>
-<p> 본문: {{blog.body}}</p>
-<a href ='{%url 'board'%}'>목록</a> 
-<form action="{%url 'board_update' blog.id%}">
-    <button class="dropdown-item" type="submit">수정하기</button>
-</form>
-<form action="{%url 'board_delete' blog.id%}">
-    <button class="dropdown-item" type="submit">삭제하기</button>
-</form>
+{%extends 'base.html'%}
+{%block contents%}
+<div class="board_sign">
+    <p class="sign_word">카드 이야기</p>
+</div>
+<br>
+<br>
+<div class="container board_detail_box">
+    <div class="input-group padding_title">
+        <p class="sort">제목</p>  <p class="detail_title"> {{blog.title}}</p>
+    </div>
+    <div class="input-group padding_title">
+        <p class="sort">카드</p>  <p class="detail_name"> {{blog.card_name}}</p>
+    </div>
+    <div class="input-group padding_title">
+        <p class="sort">올린시간</p>  <p class="detail_name"> {{blog.pub_date}}</p>
+    </div>
+    <div class="input-group padding_title">
+        <p class="sort">후기</p>  <p class="detail_body"> {{blog.body}}</p>
+    </div>
+    <form action="{%url 'board'%}" class="sort">
+        <button type="submit" class="btn btn-light" >목록</button>
+    </form>
+    
+    <form action="{%url 'board_update' blog.id%}" >
+        <button class="btn btn-light" type="submit">수정하기</button>
+    </form>
+    <form action="{%url 'board_delete' blog.id%}">
+        <button class="btn btn-light" type="submit">삭제하기</button>
+    </form>
+</div>
 <br><br>
+
+<style>
+    .sign_word{
+        font-family: 'Yeon Sung'; 
+        font-size: 40px;
+    }
+    .board_sign {
+        font-family: 'Do Hyeon'; 
+        font-size: 20px;
+        display: block;
+        width: 100%;
+        padding: 32px 10px;
+        color: #fff;
+        background: #91aee4;
+        background: -moz-linear-gradient(left,#91aee4 0,#6580a1 100%);
+        background: -webkit-linear-gradient(left,#91aee4,#7ea8da);
+        background: -webkit-gradient(linear,left top,right top,from(#91aee4),to(#6580a1));
+        background: -o-linear-gradient(left,#91aee4 0,#34464b 100%);
+        background: linear-gradient(90deg,#91aee4 0,#6580a1);
+        text-align: center;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#91aee4",endColorstr="#34464b",GradientType=1);
+    }
+
+    .detail_title{
+        border: 2px solid #bcbcbc;
+        padding: 10px 10px;
+        width: 500px;
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    .detail_name{
+        border: 2px solid #bcbcbc;
+        padding: 10px 10px;
+        width: 300px;
+        height: 50px;
+        border-radius: 10px;
+
+    }
+    .board_title{
+        font-family: 'Nanum Myeongjo'; 
+        font-size: 20px;
+    }
+
+    .board_detail_box{
+        border: 2px solid #bcbcbc;
+        padding: 40px 30px;
+        width: 1000px;
+        height: 830px;
+        border-radius: 10px;
+    }
+
+    .detail_body{
+        border: 2px solid #bcbcbc;
+        padding: 10px 10px;
+        width: 700px;
+        height: 450px;
+        border-radius: 10px;
+    }
+
+    .sort{
+        padding: 10px 10px;
+    }
+
+    .sort{
+        float: right;
+    }
+
+    
+
+
+</style>    
+{%endblock%}

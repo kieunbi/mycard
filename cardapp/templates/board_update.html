@@ -5,12 +5,9 @@
     <input type="text" name="title" value="{{blog.title}}">
     <br>
     <h4>카드</h4>
-    <input type="text" name="card_name">
+    <input type="text" name="card_name" value="{{blog.card_name}}">
     <h4>본문</h4>
-    <textarea cols=40 rows=10 name="body"></textarea>
+    <input type="text" name="body" value="{{blog.body}}" style="width:300px;height:200px;"></input>
     <br>
-    <input type="text" name="title" placeholder="제목" value="{{blog.title}}">
-    <input type="text" name="body" placeholder="날짜" value="{{blog.pub_date}}">
-    <input type="text" placeholder="본문" value="{{blog.body}}">
     <input class="bin btn-dark" type="submit" value="제출하기">
 </form>
