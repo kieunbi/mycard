@@ -22,11 +22,11 @@
         {%for card in cards%}
         <div class="card_box">
             <p> {{card.card_name}}</p> 
-            <img src="/static/{{card.card_image.url}}" height="100px">  
-            <!-- <p class="result_p"> 영화의 할인률은 {{card.card_movie}}%</p> 
-            <p class="result_p"> 버스의 할인률은 {{card.card_bus}}%</p> 
-            <p class="result_p"> 커피의 할인률은 {{card.card_coffee}}%</p> 
-            <p class="result_p"> 마트의 할인률은 {{card.card_mart}}%</p>  -->
+            <img src="/static/{{card.card_image.url}}" height="150px">  
+            <p class="sort"> 영화 할인률 {{card.card_movie}}</p> 
+            <p class="sort"> 버스 할인률 {{card.card_bus}}</p> 
+            <p class="sort"> 커피 할인률 {{card.card_coffee}}</p> 
+            <p class="sort"> 마트 할인률 {{card.card_mart}}</p> 
         </div>    
         {%endfor%}
 
@@ -38,7 +38,7 @@
     .card_box{
         border-radius: 10px;
         border: 1px solid #474b53;
-        padding: 30px;
+        padding: 30px 60px;
         
     }
 
@@ -55,6 +55,10 @@
         padding: 30px;
         background-color: #f9fafd;
 
+    }
+
+    .sort {
+        padding: 10px 10px;
     }
 
     .vs{

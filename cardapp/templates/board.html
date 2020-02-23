@@ -26,20 +26,13 @@
   <div class="board_sign">
     <p class="sign_word">카드가 가진 이야기를 풀어주세요:).</p>
     <form action="{%url 'board_write'%}">
-<<<<<<< HEAD
-        <button class="btn btn-dark" type="submit">글쓰기</button>
-=======
-      <button type="submit" class="btn btn-light">카드 후기 남기기</button>
->>>>>>> f78a65ddeb82ed68e78fd006da3e0643b52a4778
+        <button class="btn btn-dark" type="submit">후기쓰기</button>
     </form>
   </div>
 
   <!-- Page Content -->
   <div class="container">
-
-
     <div class="row">
-
       <!-- Blog Entries Column -->
       <div class="col-md-8">
         <h1 class="my-4">REVIEW
@@ -49,17 +42,17 @@
         <!-- Blog Post -->
         {% for blog in blogs.all %}
         <div class="card mb-4">
-          <a href={%url 'board_detail' blog.id%} class="a_style">
+            <a href={%url 'board_detail' blog.id%} class="a_style">
             <div class="card-body">
-              <h2 class="card-title">{{blog.card_name}}</h2>
-          </a>
-          <p class="card-text">{{blog.summary}}</p>
-          <a href="{%url 'board_detail' blog.id%}" class="btn btn-primary">Read More &rarr;</a>
-        </div>
+                <h2 class="card-title">{{blog.card_name}}</h2>
+            </a>
+            <p class="card-text">{{blog.title}}</p>
+            <a href="{%url 'board_detail' blog.id%}" class="btn btn-primary">Read More &rarr;</a>
+            </div>
         <div class="card-footer text-muted">
-          Posted on {{blog.pub_date}}
+            Posted on {{blog.pub_date}}
         </div>
-      </div>
+        </div>
       {%endfor%}
       <!-- Pagination -->
       <ul class="pagination justify-content-center mb-4">
@@ -85,10 +78,11 @@
       <div class="card my-4">
         <h5 class="card-header">Search</h5>
         <div class="card-body">
-          <form action="{%url 'search'%}">
+          <form action="{%url 'search'%}" method="get">
+            {%csrf_token%}
             <div class="input-group">
-              <input type="search" name='query' class="form-control" placeholder="카드검색">
-              <span class="input-group-btn">
+                <input type="search" name='q' class="form-control" placeholder="카드검색">
+                <span class="input-group-btn">
                 <button class="btn btn-secondary" type="submit">Go!</button>
               </span>
             </div>

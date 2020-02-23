@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 
 def board(request): 
-    blogs = Blog.objects #쿼리셋, 모델로 부터 객체 목록을 전달받게끔 하는 것 / 
+    blogs = Blog.objects.order_by('-pub_date') #쿼리셋, 모델로 부터 객체 목록을 전달받게끔 하는 것 / 
     #이 쿼리셋을 어떤 식으로 기능하거나 처리하도록 하는 기능들을 표시해주는 것을 메소드, 쿼리셋을 활용하게끔 하는 것
     blog_list = Blog.objects.all()
     paginator = Paginator(blog_list, 3) 
@@ -30,10 +30,10 @@ def write_create(request): #입력받은 내용을 데이터베이스에 넣어�
     blog.body=request.GET['body']
     blog.pub_date=timezone.datetime.now()
     blog.save() #데이터 베이스에 저장 
-    return redirect('/board_detail/'+str(blog.id))
+    return redirect('/board')
 
-def result(request):   
-    return render(request,'result.html')
+def board_search_result(request):   
+    return render(request,'board_search_result.html')
 
 def board_update(request, blog_id):
     if request.method == "GET":
@@ -109,7 +109,9 @@ def card_result(request):
  
 
 def search(request):
-    query=request.GET['query']
-    if query:
-        posts=Blog.objects.filter(Q(card_name=query))
-    return render(request,'result.html',{'posts':posts}) 
+    products=None
+    query=None
+    if 'q' in request.GET:
+        query=request.GET.get('q')
+        products= Blog.objects.all().filter(Q(card_name__icontains=query))
+    return render(request,'board_search_result.html',{'products':products,'query':query}) 

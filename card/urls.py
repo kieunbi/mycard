@@ -28,7 +28,7 @@ urlpatterns = [
     path('board_update/<int:blog_id>',cardapp.views.board_update, name="board_update"),
     path('board_delete/<int:blog_id>',cardapp.views.board_delete, name="board_delete"),
     path('search/',cardapp.views.search, name="search"),
-    path('result/',cardapp.views.result, name="result"),
+    path('board_search_result/',cardapp.views.board_search_result, name="board_search_result"),
     path('board_write/',cardapp.views.board_write, name="board_write"),
     path('write_create/',cardapp.views.write_create, name="write_create")
 ]
