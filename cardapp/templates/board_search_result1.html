@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{%block contents%}
+<br>
+<br>
+<br>
+<div class="board_sign">
+    <p class="sign_word">찾고 계시는 카드가 맞나요?</p>
+    <form action="{%url 'board'%}">
+        <button class="btn btn-dark" type="submit">뒤로가기</button>
+    </form>
+</div>
+<br><br>
+<div class="container">
+    <p class="find_card">당신이 찾고 있는 카드: <b>"{{query}}"</b></p>
+    <hr>
+
+
+    {% for product in products %}
+    <h4>제목:{{product.title}}</h4>
+    <h4>카드:{{product.card_name}}</h4>
+    <h4>내용:{{product.body}}</h4>
+    {%empty%}
+    <br>
+    <center>
+        <p class="none_result"> "검색 결과가 없습니다."</p>
+    </center>
+    {%endfor%}
+</div>
+
+<style>
+    .find_card {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .none_result {
+        font-size: 40px;
+        font-weight: bold;
+    }
+</style>
+
+
+{%endblock%}
