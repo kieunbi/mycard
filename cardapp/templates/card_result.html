@@ -21,12 +21,12 @@
         <br>
         {%for card in cards%}
         <div class="card_box">
-            <p> {{card.card_name}}</p> 
-            <img src="/static/{{card.card_image.url}}" height="150px">  
-            <p class="sort"> 영화 할인률 {{card.card_movie}}</p> 
-            <p class="sort"> 버스 할인률 {{card.card_bus}}</p> 
-            <p class="sort"> 커피 할인률 {{card.card_coffee}}</p> 
-            <p class="sort"> 마트 할인률 {{card.card_mart}}</p> 
+            <p class="card_name"> {{card.card_name}}</p> 
+            <img src="/static/{{card.card_image.url}}" height="150px" align="left">  
+            <p class="card_sort"> 영화 할인률 {{card.card_movie}}%</p> 
+            <p class="card_sort"> 버스 할인률 {{card.card_bus}}%</p> 
+            <p class="card_sort"> 커피 할인률 {{card.card_coffee}}%</p> 
+            <p class="card_sort"> 마트 할인률 {{card.card_mart}}%</p> 
         </div>    
         {%endfor%}
 
@@ -35,11 +35,22 @@
 
 
 <style>
+    .card_name{
+        font-family: 'Do Hyeon';
+        font-weight: bold;
+        font-size: 30px;
+    }
     .card_box{
         border-radius: 10px;
         border: 1px solid #474b53;
-        padding: 30px 60px;
+        padding: 30px 30px;
         
+    }
+
+    .card_sort{
+        font-family: 'Noto Sans KR';
+        padding-left: 270px;
+
     }
 
     .my-hr1 {
@@ -55,10 +66,6 @@
         padding: 30px;
         background-color: #f9fafd;
 
-    }
-
-    .sort {
-        padding: 10px 10px;
     }
 
     .vs{
